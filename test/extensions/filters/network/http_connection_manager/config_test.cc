@@ -500,6 +500,9 @@ tracing:
   - tag: rtag
     request_header:
       name: X-Tag
+  - tag: rstag
+    response_header:
+      name: Xs-Tag
   - tag: mtag
     metadata:
       kind: { request: {} }
@@ -513,7 +516,7 @@ tracing:
                                      filter_config_provider_manager_, creation_status_);
   ASSERT_TRUE(creation_status_.ok());
 
-  std::vector<std::string> custom_tags{"ltag", "etag", "rtag", "mtag"};
+  std::vector<std::string> custom_tags{"ltag", "etag", "rtag", "rstag", "mtag"};
   const Tracing::CustomTagMap& custom_tag_map = config.tracingConfig()->custom_tags_;
   for (const std::string& custom_tag : custom_tags) {
     EXPECT_NE(custom_tag_map.find(custom_tag), custom_tag_map.end());
