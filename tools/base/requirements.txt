@@ -25,9 +25,9 @@ aio-api-bazel==0.0.2 \
     --hash=sha256:56e36463d236e477b7e282f2d870185a0b978b50e2c3803c1ebf8b8ac4b18f5b \
     --hash=sha256:d3f563b7698e874437d80538a89dd4d79bc37de2e850c846330ae456e3f21dcc
     # via -r requirements.in
-aio-api-github==0.2.5 \
-    --hash=sha256:301a357209831ac2bc0fb5c79f8b8795a5363da5cabc2229f10155bdb6d42f5d \
-    --hash=sha256:3532d0892e875e8bb6b188c0beba4e8bac9d5147e249ce987bb2beef1e7b711e
+aio-api-github==0.2.7 \
+    --hash=sha256:14eeb3f59fbac472d6f2c1a9cd9542ace5f43dbca6808c456e999486173e74d0 \
+    --hash=sha256:c71e3569ac77365dbeb7b3b798c49ea305f83a4a8ebc67c38f189ab6b6b5d13c
     # via
     #   -r requirements.in
     #   envoy-base-utils
@@ -36,9 +36,9 @@ aio-api-nist==0.0.4 \
     --hash=sha256:1f2909d60ed4fdb3a3ffc37ad6012666f34078b71648394be91f5e67bbf8b6ca \
     --hash=sha256:c948ee597b9e7cda7982e17bc4aca509b8aa68510899b42e2d382c10fb0d6f89
     # via envoy-dependency-check
-aio-core==0.10.1 \
-    --hash=sha256:608cd1e5dbea8492bd7cc426ad0e280693c3ec2520da99e8545eff23f52fad0c \
-    --hash=sha256:f442fdbb811cad093f8a89019b5ea768e38396f21393c5fe241eb63a2e2914a3
+aio-core==0.10.3 \
+    --hash=sha256:9f5e87347e396a00829e83bbee3769fccdc3ead24522c429e7dfe53d67a50e07 \
+    --hash=sha256:b51d32426247f3c265015c5c4b776f9feef15e01c28ca4e868c2ba7b67c556cc
     # via
     #   aio-api-bazel
     #   aio-api-github
