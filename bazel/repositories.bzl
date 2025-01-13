@@ -367,6 +367,8 @@ def envoy_dependencies(skip_targets = []):
     external_http_archive("bazel_toolchains")
     external_http_archive("bazel_compdb")
     external_http_archive("envoy_build_tools")
+    external_http_archive(name = "envoy_examples")
+
     _com_github_maxmind_libmaxminddb()
 
     external_http_archive("rules_pkg")
@@ -449,6 +451,8 @@ def _com_github_c_ares_c_ares():
     external_http_archive(
         name = "com_github_c_ares_c_ares",
         build_file_content = BUILD_ALL_CONTENT,
+        patch_args = ["-p1"],
+        patches = ["@envoy//bazel:c-ares.patch"],
     )
     native.bind(
         name = "ares",
@@ -1462,13 +1466,6 @@ filegroup(
         build_file_content = BUILD_ALL_CONTENT,
     )
 
-    # This archive provides Kafka client in Python, so we can use it to interact with Kafka server
-    # during integration tests.
-    external_http_archive(
-        name = "kafka_python_client",
-        build_file_content = BUILD_ALL_CONTENT,
-    )
-
 def _com_github_fdio_vpp_vcl():
     external_http_archive(
         name = "com_github_fdio_vpp_vcl",
@@ -1483,7 +1480,13 @@ def _rules_ruby():
     external_http_archive("rules_ruby")
 
 def _foreign_cc_dependencies():
-    external_http_archive("rules_foreign_cc")
+    external_http_archive(
+        name = "rules_foreign_cc",
+        # This patch is needed to fix build on macos with xcode 15.3.
+        # remove this when https://github.com/bazelbuild/rules_foreign_cc/issues/1186 fixed.
+        patch_args = ["-p1"],
+        patches = ["@envoy//bazel:rules_foreign_cc.patch"],
+    )
 
 def _com_github_maxmind_libmaxminddb():
     external_http_archive(

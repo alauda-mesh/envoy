@@ -13,6 +13,7 @@ envoy_cc_test(
     srcs = [
         "router_test.cc",
     ],
+    rbe_pool = "6gig",
     deps = [
         "//contrib/generic_proxy/filters/network/source/router:router_lib",
         "//contrib/generic_proxy/filters/network/test:fake_codec_lib",
